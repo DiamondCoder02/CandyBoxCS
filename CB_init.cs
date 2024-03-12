@@ -9,7 +9,7 @@ internal class CB_init
      * https://stackoverflow.com/questions/69016697/create-a-standalone-exe-file-in-visual-studio-2019
     */
 
-    public static void Main(string[] args)
+    public static void Main()
     {
         SetWindowSizeOfTheTerminal();
 

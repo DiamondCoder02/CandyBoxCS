@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CandyBoxCS.src.Ascii;
 namespace CandyBoxCS.src.Coding.Locations
 {
     internal class Village
@@ -36,9 +31,9 @@ namespace CandyBoxCS.src.Coding.Locations
             for (int i = 0; i < controls.Length; i++)
             { controlRightSide += (controls[i] + "\n"); }
 
-            string mainContext = "Village.txt" + "\n"+"Soon";
+            string mainContext = "Edited by DiamondCoder - " + MapVillage.Map_Village().ToString();
 
-            string tipRightSide = "This is the Village, now that you went outside...\nYou lazy >.>\n\n"+
+            string tipRightSide = "This is the Village, now that you went outside...\nYou lazy >.>\n\n" +
                 "Explore your home and explore the world!";
 
             string[] tableContext = [

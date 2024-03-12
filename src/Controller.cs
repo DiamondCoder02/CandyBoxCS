@@ -21,7 +21,7 @@ namespace CandyBoxCS.src
             {
                 MenuControl.pressedKeyForControl = Console.ReadKey(true).Key;
                 if (MenuControl.pressedKeyForControl == ConsoleKey.Escape) { return; }
-                keyPressDetectionAndLocationChange();
+                KeyPressDetectionAndLocationChange();
                 MenuControl.MainTableRender();
             }
         }
@@ -34,7 +34,6 @@ namespace CandyBoxCS.src
         }
 
         // TODO - Lollipop Counter is broken if multiplier below 1
-        static int minute = 0;
         private static void Timer_elapsed(object? sender, ElapsedEventArgs e)
         {
             // TODO https://candybox2.fandom.com/wiki/The_Lollipop_farm#Trivia
@@ -43,7 +42,7 @@ namespace CandyBoxCS.src
             if (IVariables.loliMultip <= 21) { IVariables.lollipops += 1 * ((int)IVariables.loliMultip); }
             MenuControl.MainTableRender();
         }
-        private static void keyPressDetectionAndLocationChange()
+        private static void KeyPressDetectionAndLocationChange()
         {
             bool[] unMen = IVariables.unlockedMenus;
 

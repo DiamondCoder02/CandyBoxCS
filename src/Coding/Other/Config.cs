@@ -19,7 +19,7 @@ namespace CandyBoxCS.src.Coding.Other
             }
 
             string[] controls = [
-                "D - ChangeDebug",
+                "D - Debug On|Off",
             ];
             string controlRightSide = "Config:\n";
             for (int i = 0; i < controls.Length; i++)

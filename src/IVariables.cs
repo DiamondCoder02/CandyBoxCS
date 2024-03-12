@@ -2,6 +2,7 @@
 {
     public interface IVariables
     {
+#pragma warning disable CA2211 // Non-constant fields should not be visible
         public static bool debugMode = false;
         public static string language = "en";
 
@@ -34,7 +35,7 @@
         // This is used if the control is discovered
         // If not, on the left side it shows "? - ???"
         // If one is discovered it will be true and show "M - Main map"
-        public static bool[][] foundControls = {
+        public static bool[][] foundControls = [
         // - Side Scrolling fight
         // + Special, choose but also fight
         // | Lot of choices
@@ -81,6 +82,6 @@
             false, // Tower
             false, // Stairs
         ]
-    };
+    ];
     }
 }

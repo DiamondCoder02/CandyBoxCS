@@ -7,9 +7,10 @@ namespace CandyBoxCS.src.Coding
     internal class MenuControl
     {
         public static ConsoleKey pressedKeyForControl;
+        public static string[]? debugInfoAtTop;
         public static void MainTableRender()
         {
-            string[] defMenu = defaultMenu();
+            string[] defMenu = DefaultMenu();
             string[] RowTextControl;
             switch (IVariables.currentLocation)
             {
@@ -23,6 +24,11 @@ namespace CandyBoxCS.src.Coding
             Console.SetCursorPosition(0, 0);
             pressedKeyForControl = ConsoleKey.None;
 
+            if (IVariables.debugMode)
+            {
+                if (debugInfoAtTop != null) { for (int i = 0; i < debugInfoAtTop.Length; i++) { Console.WriteLine(debugInfoAtTop[i]); } }
+                Console.WriteLine("---|||---|||---|||---|||---|||---");
+            }
 
             if (IVariables.unlockedMenus[0])
             {
@@ -32,11 +38,14 @@ namespace CandyBoxCS.src.Coding
                 table.AddColumn((IVariables.debugMode ? "DebugMode: ON" : ""));
                 // 40 dashes 
                 table.AddColumn(defMenu[0] + "\n----------------------------------------\n" + defMenu[1] + "\n----------------------------------------\n" + defMenu[2]);
-                table.AddColumn("NotSureWhat\nToWriteHere... \nHi :3");
+                table.AddColumn("Current location: \n" + IVariables.currentLocation);
 
                 table.Columns[0].Width(20);
                 table.Columns[1].Width(100);
                 table.Columns[2].Width(20);
+
+                // table.Expand();
+                table.Width = 200;
 
                 table.AddRow(
                     "Controls:\n" +
@@ -45,8 +54,7 @@ namespace CandyBoxCS.src.Coding
                     RowTextControl[1],
                     RowTextControl[2]
                 );
-                // table.Expand();
-                table.Width = 200;
+
                 AnsiConsole.Write(table); // Render the table to the console
             } else
             {
@@ -55,7 +63,7 @@ namespace CandyBoxCS.src.Coding
             }
         }
 
-        private static string[] defaultMenu()
+        private static string[] DefaultMenu()
         {
             bool[] unMen = IVariables.unlockedMenus;
             string topMenu = "", sweets = (IVariables.candies >= 0 ? "Candies: " + IVariables.candies : ""), basicControls = "";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CandyBoxCS.src.Coding
 {
-    internal class _EXAMPLE
+    internal class AaEXAMPLE
     {
         public static string[] Pexample()
         {
