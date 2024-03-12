@@ -8,7 +8,8 @@ internal class CB_init
      * https://spectreconsole.net/
      * https://stackoverflow.com/questions/69016697/create-a-standalone-exe-file-in-visual-studio-2019
     */
-    public static void CB_initiate()
+
+    public static void Main(string[] args)
     {
         SetWindowSizeOfTheTerminal();
 

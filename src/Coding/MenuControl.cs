@@ -21,30 +21,37 @@ namespace CandyBoxCS.src.Coding
             string[] defMenu = defaultMenu();
 
             Console.SetCursorPosition(0, 0);
-
-            var table = new Table();
-            table.Title("CBCS - CandyBox C#");
-
-            table.AddColumn((IVariables.debugMode ? "DebugMode: ON" : ""));
-            // 40 dashes 
-            table.AddColumn(defMenu[0] + "\n----------------------------------------\n" + defMenu[1] + "\n----------------------------------------\n" + defMenu[2]);
-            table.AddColumn("NotSureWhat\nToWriteHere... \nHi :3");
-
-            table.Columns[0].Width(15);
-            table.Columns[1].Width(70);
-            table.Columns[2].Width(15);
-
-            table.AddRow(
-                "Controls:\n" +
-                defMenu[3] +
-                RowTextControl[0],
-                RowTextControl[1],
-                RowTextControl[2]
-            );
-            table.Expand();
-            // Render the table to the console
-            AnsiConsole.Write(table);
             pressedKeyForControl = ConsoleKey.None;
+
+
+            if (IVariables.unlockedMenus[0])
+            {
+                var table = new Table();
+                table.Title("CBCS - CandyBox C#");
+
+                table.AddColumn((IVariables.debugMode ? "DebugMode: ON" : ""));
+                // 40 dashes 
+                table.AddColumn(defMenu[0] + "\n----------------------------------------\n" + defMenu[1] + "\n----------------------------------------\n" + defMenu[2]);
+                table.AddColumn("NotSureWhat\nToWriteHere... \nHi :3");
+
+                table.Columns[0].Width(15);
+                table.Columns[1].Width(70);
+                table.Columns[2].Width(15);
+
+                table.AddRow(
+                    "Controls:\n" +
+                    defMenu[3] +
+                    RowTextControl[0],
+                    RowTextControl[1],
+                    RowTextControl[2]
+                );
+                table.Expand();
+                AnsiConsole.Write(table); // Render the table to the console
+            } else
+            {
+                Console.WriteLine(IVariables.candies >= 0 ? "Candies: " + IVariables.candies + "" : ""); Console.WriteLine();
+                Console.WriteLine(RowTextControl[1]); Console.WriteLine();
+            }
         }
 
         private static void keyPressDetectionAndLocationChange()
@@ -68,7 +75,7 @@ namespace CandyBoxCS.src.Coding
             bool[] unMen = IVariables.unlockedMenus;
             string topMenu = "", sweets = (IVariables.candies >= 0 ? "Candies: " + IVariables.candies : ""), basicControls = "";
 
-            if (IVariables.unlockedMenus[0])
+            if (IVariables.unlockedMenus[0]) 
             {
                 topMenu =
                 (unMen[0] ? "CandyBox" : " - ") + " | " +
@@ -78,7 +85,10 @@ namespace CandyBoxCS.src.Coding
                 (unMen[7] ? "Cauldron" : " - ") + " | " +
                 (unMen[2] ? "Save" : " - ") + " | " +
                 (unMen[1] ? "Config" : " - ");
+            }
 
+            if (IVariables.unlockedMenus[1])
+            {
                 sweets = (IVariables.candies >= 0 ? "Candies: " + IVariables.candies + "  ||  " : "") +
                 (IVariables.chocolate >= 0 ? "Chocolate: " + IVariables.chocolate + "  ||  \n" : "") +
                 (IVariables.lollipops >= 0 ? "Lollipops: " + IVariables.lollipops + "  ||  " : "") +
@@ -87,6 +97,7 @@ namespace CandyBoxCS.src.Coding
                 // Add some rows
                 basicControls =
                     "----------\n" +
+                    "Esc - quit" + 
                     (unMen[0] ? "1 - CandyBox" : "? - ???") + "\n" +
                     (unMen[4] ? "2 - Inventory" : "? - ???") + "\n" +
                     (unMen[5] ? "3 - Map" : "? - ???") + "\n" +
