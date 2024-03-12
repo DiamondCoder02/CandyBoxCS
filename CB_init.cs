@@ -66,6 +66,13 @@ internal class CB_init
             if (Console.ReadKey(true).Key == ConsoleKey.Y) IVariables.debugMode = true;;
             */
             IVariables.debugMode = true;
+            if (IVariables.debugMode)
+            {
+                IVariables.candies = 1000;
+                IVariables.lollipops = 10000;
+                IVariables.chocolate = 100;
+                IVariables.painsAuChocolat = 10;
+            }
             Controller.MainGame(true);
         }
     }

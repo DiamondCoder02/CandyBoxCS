@@ -1,5 +1,6 @@
 ﻿using Spectre.Console;
 using CandyBoxCS.src.Coding.Other;
+using CandyBoxCS.src.Coding.Locations;
 
 namespace CandyBoxCS.src.Coding
 {
@@ -8,17 +9,16 @@ namespace CandyBoxCS.src.Coding
         public static ConsoleKey pressedKeyForControl;
         public static void MainTableRender()
         {
-            keyPressDetectionAndLocationChange();
+            string[] defMenu = defaultMenu();
             string[] RowTextControl;
             switch (IVariables.currentLocation)
             {
                 case "Clicker": RowTextControl = Clicker.Pclicker(); break;
-                // case "Village": RowTextControl = Village.Pvillage(); break;
+                case "Village": RowTextControl = Village.Pvillage(); break;
+                case "Save": RowTextControl = Save.Psave(); break;
                 case "Config": RowTextControl = Config.Pconfig(); break;
                 default: RowTextControl = ["ERROR", IVariables.currentLocation, "ERROR"]; IVariables.currentLocation = "Clicker"; break;
             }
-
-            string[] defMenu = defaultMenu();
 
             Console.SetCursorPosition(0, 0);
             pressedKeyForControl = ConsoleKey.None;
@@ -34,9 +34,9 @@ namespace CandyBoxCS.src.Coding
                 table.AddColumn(defMenu[0] + "\n----------------------------------------\n" + defMenu[1] + "\n----------------------------------------\n" + defMenu[2]);
                 table.AddColumn("NotSureWhat\nToWriteHere... \nHi :3");
 
-                table.Columns[0].Width(15);
-                table.Columns[1].Width(70);
-                table.Columns[2].Width(15);
+                table.Columns[0].Width(20);
+                table.Columns[1].Width(100);
+                table.Columns[2].Width(20);
 
                 table.AddRow(
                     "Controls:\n" +
@@ -45,28 +45,13 @@ namespace CandyBoxCS.src.Coding
                     RowTextControl[1],
                     RowTextControl[2]
                 );
-                table.Expand();
+                // table.Expand();
+                table.Width = 200;
                 AnsiConsole.Write(table); // Render the table to the console
             } else
             {
                 Console.WriteLine(IVariables.candies >= 0 ? "Candies: " + IVariables.candies + "" : ""); Console.WriteLine();
                 Console.WriteLine(RowTextControl[1]); Console.WriteLine();
-            }
-        }
-
-        private static void keyPressDetectionAndLocationChange()
-        {
-            bool[] unMen = IVariables.unlockedMenus;
-
-            switch (pressedKeyForControl)
-            {
-                case ConsoleKey.D1: { if (IVariables.unlockedMenus[0]) { IVariables.currentLocation = "Clicker"; }; break; }
-                case ConsoleKey.D2: { if (IVariables.unlockedMenus[4]) { IVariables.currentLocation = "Inventory"; }; break; }
-                case ConsoleKey.D3: { if (IVariables.unlockedMenus[5]) { IVariables.currentLocation = (IVariables.foundControls[1][0] ? "Map" : "Village"); } break; }
-                case ConsoleKey.D4: { if (IVariables.unlockedMenus[6]) { IVariables.currentLocation = "LollipopFarm"; }; break; }
-                case ConsoleKey.D5: { if (IVariables.unlockedMenus[7]) { IVariables.currentLocation = "Cauldron"; }; break; }
-                case ConsoleKey.D6: { if (IVariables.unlockedMenus[2]) { IVariables.currentLocation = "Save"; }; break; }
-                case ConsoleKey.D7: { if (IVariables.unlockedMenus[1]) { IVariables.currentLocation = "Config"; }; break; }
             }
         }
 
@@ -97,7 +82,7 @@ namespace CandyBoxCS.src.Coding
                 // Add some rows
                 basicControls =
                     "----------\n" +
-                    "Esc - quit" + 
+                    "Esc - quit\n" + 
                     (unMen[0] ? "1 - CandyBox" : "? - ???") + "\n" +
                     (unMen[4] ? "2 - Inventory" : "? - ???") + "\n" +
                     (unMen[5] ? "3 - Map" : "? - ???") + "\n" +

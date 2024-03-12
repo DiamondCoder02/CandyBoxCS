@@ -11,8 +11,4 @@
     <PackageReference Include="Spectre.Console" Version="0.48.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="src\Coding\Locations\" />
-  </ItemGroup>
-
 </Project>
