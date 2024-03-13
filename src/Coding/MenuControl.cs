@@ -56,6 +56,13 @@ namespace CandyBoxCS.src.Coding
                 );
 
                 AnsiConsole.Write(table); // Render the table to the console
+
+                int consoleHeight = Console.WindowHeight;
+                (int Left, int Top) value = Console.GetCursorPosition();
+                for (int i = 0; i < (consoleHeight - value.Top - 1); i++)
+                {
+                    Console.WriteLine(new string(' ', Console.WindowWidth));
+                }
             } else
             {
                 Console.WriteLine(IVariables.candies >= 0 ? "Candies: " + IVariables.candies + "" : ""); Console.WriteLine();

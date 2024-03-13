@@ -7,15 +7,12 @@ namespace CandyBoxCS.src.Coding.Locations
         {
             switch (MenuControl.pressedKeyForControl)
             {
-                case ConsoleKey.E:
-                    IVariables.eatenCandies += IVariables.candies;
-                    IVariables.candies = 0;
-                    break;
-                case ConsoleKey.T:
-                    if (IVariables.candies <= 10) { break; }
-                    IVariables.candies -= 10;
-                    IVariables.thrownCandies += 10;
-                    break;
+                case ConsoleKey.M: IVariables.currentLocation = "MainMap"; break;
+                case ConsoleKey.S: IVariables.currentLocation = "VillageShop"; break;
+                // case ConsoleKey.G: IVariables.currentLocation = "MiniGames"; break;
+                case ConsoleKey.F: IVariables.currentLocation = "VillageForge"; break;
+                // case ConsoleKey.Y: IVariables.currentLocation = "YourHome"; break;
+                case ConsoleKey.H: IVariables.currentLocation = "VillageBattleHouse"; break;
             }
 
 
@@ -31,7 +28,32 @@ namespace CandyBoxCS.src.Coding.Locations
             for (int i = 0; i < controls.Length; i++)
             { controlRightSide += (controls[i] + "\n"); }
 
-            string mainContext = "Edited by DiamondCoder - " + MapVillage.Map_Village().ToString();
+            string mainContext = "Edited by DiamondCoder - " + MapVillage.Map_Village();
+            /*
+             * My future idea:
+             * When doing the ascii return an array:
+             * return string[] = [
+             *  "true", // if it was edited
+             *  "true", // if markdown should be disabled
+             *  "-----------", // This is that one long ass fucking art
+             *  [              // ANIMATIONS?
+             *      [   "12",
+             *          "23", // The position it should start
+             *          "___", // animation frames
+             *          "__-",
+             *          "_-_",
+             *          "-__", // this worm #.#
+             *      ],
+             *      [   "43",
+             *          "11", // The position it should start
+             *          "|||", // animation frames
+             *          "||.",
+             *          "|.|",
+             *          ".||",
+             *      ]
+             *  ]
+             * ]
+             */
 
             string tipRightSide = "This is the Village, now that you went outside...\nYou lazy >.>\n\n" +
                 "Explore your home and explore the world!";
