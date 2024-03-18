@@ -33,6 +33,9 @@ internal class CB_init
         Console.WriteLine("Fully originally can be played at: https://candybox2.github.io/");
         Console.WriteLine();
         Console.WriteLine("If you wanna play this version of the game, just press ENTER");
+        Console.WriteLine();
+        Console.WriteLine("NOTE: Due to lazyness, please play it in full screen so the images don't break!");
+        Console.WriteLine("This might be fixed later...");
 
         /*
         Console.WriteLine("test1");

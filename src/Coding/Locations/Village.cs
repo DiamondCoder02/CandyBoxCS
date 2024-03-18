@@ -1,4 +1,5 @@
 ﻿using CandyBoxCS.src.Ascii;
+using CandyBoxCS.src.Coding.Functions;
 namespace CandyBoxCS.src.Coding.Locations
 {
     internal class Village
@@ -28,7 +29,7 @@ namespace CandyBoxCS.src.Coding.Locations
             for (int i = 0; i < controls.Length; i++)
             { controlRightSide += (controls[i] + "\n"); }
 
-            string mainContext = "Edited by DiamondCoder - " + MapVillage.Map_Village();
+            string mainContext = AsciiControl.AsciiAnimation("village");
             /*
              * My future idea:
              * When doing the ascii return an array:

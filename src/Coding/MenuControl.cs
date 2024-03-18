@@ -16,6 +16,7 @@ namespace CandyBoxCS.src.Coding
             {
                 case "Clicker": RowTextControl = Clicker.Pclicker(); break;
                 case "Village": RowTextControl = Village.Pvillage(); break;
+                case "VillageShop": RowTextControl = VillageShop.Pvillage_shop(); break;
                 case "Save": RowTextControl = Save.Psave(); break;
                 case "Config": RowTextControl = Config.Pconfig(); break;
                 default: RowTextControl = ["ERROR", IVariables.currentLocation, "ERROR"]; IVariables.currentLocation = "Clicker"; break;
@@ -58,8 +59,8 @@ namespace CandyBoxCS.src.Coding
                 AnsiConsole.Write(table); // Render the table to the console
 
                 int consoleHeight = Console.WindowHeight;
-                (int Left, int Top) value = Console.GetCursorPosition();
-                for (int i = 0; i < (consoleHeight - value.Top - 1); i++)
+                (int Left, int Top) = Console.GetCursorPosition();
+                for (int i = 0; i < (consoleHeight - Top - 1); i++)
                 {
                     Console.WriteLine(new string(' ', Console.WindowWidth));
                 }

@@ -44,13 +44,8 @@
             false, // Throw Candy
             false, // Request New feature
         ],
-        [ // Village
-            false, // Main Map
-            false, // Third house (Key Needed)
-        ],
         [ // Main Map
             //Special || ACTIVATE ONLY ONCE
-            false, // Gazing Mountain (PogoStick)
             false, // 3 chocolate under tree
             // Level 1
             false, // Squirel Tree
@@ -82,6 +77,38 @@
             false, // Tower
             false, // Stairs
         ]
-    ];
+        ];
+
+        public static bool[] inventoryItems = [
+            false, // Main Map
+            false, // Time Ring
+            false, // Third house key
+            false, // Beginer Grimore spell book thingie
+
+            false, // Desert Bird feather
+            false, // Pogo Stick
+            false, // Heart plug
+            false, // Advanced grimore
+
+            false, // Magical sponge
+            false, // Shell powder
+            false, // Red shark fin
+            false, // Black magic grimore
+
+            false, // Green shark fin
+            false, // Purple shark fin 
+            false, // Heart pendant
+            false, // Desert fortress key
+
+            false, // Unicorn horn
+            false, // Xinopherydon claw
+            false, // PitchFork
+            false, // Talking canddy
+
+            false, // P
+            false, // L
+            false, // A
+            false, // Y
+        ];
     }
 }
